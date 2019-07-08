@@ -15,7 +15,9 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  # code here
+  # cart is hash
+  #coupons is array of hashes
+  #must return hash
 end
 
 def apply_clearance(cart)
