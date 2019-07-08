@@ -1,5 +1,17 @@
+require 'pry'
+
 def consolidate_cart(cart)
-  # code here
+  result = {}
+  cart.each do |item|
+    itemName = item.keys.first
+    if result[itemName]
+      result[itemName][:count] += 1
+    else
+      result[itemName] = item.values.first
+      result[itemName][:count] = 1
+    end
+  end
+  result
 end
 
 def apply_coupons(cart, coupons)
