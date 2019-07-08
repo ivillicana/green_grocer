@@ -18,6 +18,18 @@ def apply_coupons(cart, coupons)
   # cart is hash
   #coupons is array of hashes
   #must return hash
+  coupons.each do |coupon|
+    item = coupon[:item]
+    if cart[item]
+      cart["#{item} W/COUPON"] = {
+        price: (coupon[:cost] / coupon[:num].to_f),
+        clearance: cart[item][:clearance],
+        count: coupon[:num]
+      }
+      cart[item][:count] -= coupon[:num]
+    end
+  end
+  cart
 end
 
 def apply_clearance(cart)
